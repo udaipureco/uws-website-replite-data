@@ -315,11 +315,32 @@ Explore Now
 <!-- ================= GALLERY ================= -->
 <section class="gallery">
 
+  <!-- HEADER -->
   <div class="gallery-header">
-    <h2>Photo Gallery</h2>
+
+    <div class="gallery-title">
+      <span class="line"></span>
+
+      <!-- LEFT LEAF -->
+      <svg class="leaf" viewBox="0 0 24 24">
+        <path d="M2 12c6-10 18-10 20 0-6 2-14 2-20 0z" fill="#3f5f3f"/>
+      </svg>
+
+      <h2>Photo Gallery</h2>
+
+      <!-- RIGHT LEAF -->
+      <svg class="leaf" viewBox="0 0 24 24">
+        <path d="M2 12c6-10 18-10 20 0-6 2-14 2-20 0z" fill="#3f5f3f"/>
+      </svg>
+
+      <span class="line"></span>
+    </div>
+
     <button class="view-btn">View All →</button>
+
   </div>
 
+  <!-- IMAGES GRID -->
   <div class="gallery-grid">
 
     <img src="images/gallery/g1.jpg">
@@ -330,26 +351,3 @@ Explore Now
   </div>
 
 </section>
-
-<script>
-
-const elements = document.querySelectorAll(".scroll-animate");
-
-function showOnScroll(){
-  const triggerBottom = window.innerHeight * 0.85;
-
-  elements.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-
-    if(top < triggerBottom){
-      el.classList.add("show");
-    }
-  });
-}
-
-window.addEventListener("scroll", showOnScroll);
-
-/* page load pe bhi run */
-showOnScroll();
-
-</script>
