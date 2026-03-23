@@ -1047,8 +1047,8 @@ padding-left:30px;
 
 /* CARD */
 .fac-card{
-  height:130px;
-  border-radius:18px;
+  height:160px;
+  border-radius:16px;
 
   background:transparent;
   box-shadow:0 6px 18px rgba(0,0,0,0.12);
@@ -1066,12 +1066,12 @@ padding-left:30px;
   height:100%;
   object-fit:cover;
   display:block;
-  border-radius:16px;
+  border-radius:14px;
 }
 
 /* HOVER */
 .fac-card:hover{
-  transform:translateY(-4px) scale(1.02);
+  transform:translateY(-6px) scale(1.03);
   box-shadow:
     0 12px 25px rgba(0,0,0,0.18),
     0 0 12px rgba(63,95,63,0.15);
@@ -1082,4 +1082,25 @@ padding-left:30px;
   .fac-card{
     height:100px;
   }
+
+body::before {
+    content: "DEMO WEBSITE • NOT OFFICIAL";
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-50deg); /* tilt badhaya */
+
+    font-size: 35px;
+    font-weight: 900;
+    letter-spacing: 4px;
+
+    color: rgba(255, 0, 0, 0.4);
+
+    text-align: center;
+    width: 180%; /* width badhaya */
+    line-height: 1.6;
+
+    pointer-events: none;
+    z-index: 9999;
 }
