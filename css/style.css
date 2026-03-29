@@ -2180,3 +2180,179 @@ filter:brightness(1.1);
 }
 
 }
+
+/* ================= MENU OVERLAY ================= */
+
+.menu-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+
+  background:#efe6d6;
+
+  transform:translateX(-100%);
+  transition:0.4s ease;
+  z-index:9999;
+}
+
+.menu-overlay.active{
+  transform:translateX(0);
+}
+
+/* ================= PANEL ================= */
+
+.menu-panel{
+  width:85%;
+  height:100%;
+
+  padding:20px;
+
+  background:#efe6d6;
+
+  box-shadow:
+    8px 0 25px rgba(0,0,0,0.2);
+
+  color:#3f5f3f;
+overflow-y:auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ================= TOP ================= */
+
+.menu-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+/* ================= LOGO ================= */
+
+.menu-logo{
+  width:80px;
+  height:80px;
+
+  border-radius:20px;
+  padding:10px;
+
+  background:#efe6d6;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.2);
+
+  object-fit:contain;
+}
+
+/* ================= CLOSE BUTTON ================= */
+
+.close-btn{
+  width:45px;
+  height:45px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:22px;
+  font-weight:bold;
+
+  background:#efe6d6;
+  color:#3f5f3f;
+
+  border-radius:12px;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,0.2);
+
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.close-btn:hover{
+  transform:rotate(90deg) scale(1.1);
+  background:#3f5f3f;
+  color:#efe6d6;
+}
+
+/* ================= LIST ================= */
+
+.menu-list{
+  padding:0;
+  margin:0;
+}
+
+.menu-list li{
+  list-style:none;
+
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  padding:14px 16px;
+  margin-bottom:12px;
+
+  border-radius:14px;
+
+  background:#efe6d6;
+  color:#3f5f3f;
+
+  font-size:16px;
+  font-weight:600;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,0.15);
+
+  transition:0.3s;
+}
+
+/* ICON */
+.menu-list li span{
+  font-size:18px;
+}
+
+/* HOVER */
+.menu-list li:hover{
+  transform:translateX(8px);
+
+  background:#3f5f3f;
+  color:#efe6d6;
+
+  box-shadow:
+    0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* ================= FOOTER ================= */
+
+.menu-footer{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.menu-footer span{
+  width:40px;
+  height:40px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#efe6d6;
+  color:#3f5f3f;
+
+  border-radius:50%;
+
+  box-shadow:
+    0 5px 12px rgba(0,0,0,0.2);
+
+  transition:0.3s;
+}
+
+.menu-footer span:hover{
+  background:#3f5f3f;
+  color:#efe6d6;
+  transform:scale(1.2);
+}
