@@ -1412,7 +1412,7 @@ box-shadow:
 }
 
 /* 🔥 LIGHT OVERLAY (TEXT CLEAR) */
-..location::before{
+.location::before{
   display:none;
 }
 
@@ -1473,7 +1473,11 @@ box-shadow:
 }
 
 /* CLOSED STYLE */
-.timing-box .closed{
+.timing-box{
+  /* kuch bhi ya empty */
+}
+
+.closed{
   color:#b03a2a;
   font-weight:800;
 }
