@@ -29,9 +29,9 @@
   </div>
 
   <div class="menu">
-    <svg class="menu-icon" onclick="openMenu()" viewBox="0 0 40 40"
-      stroke="#efe6d6" stroke-width="3"
-      stroke-linecap="round" stroke-linejoin="round">
+    <svg class="menu-icon" viewBox="0 0 40 40"
+  stroke="#efe6d6" stroke-width="3"
+  stroke-linecap="round" stroke-linejoin="round">
       <line x1="8" y1="12" x2="32" y2="12"/>
       <line x1="8" y1="20" x2="32" y2="20"/>
       <line x1="8" y1="28" x2="32" y2="28"/>
@@ -88,7 +88,7 @@
   <!-- BOTTOM BUTTONS -->
   <div class="hero-bottom">
     <div class="hero-btn"> ▶ VIEW MORE DETAILS</div>
-    <div class="hero-btn">BOOK TICKET ▶ </div>
+    <button type="button" class="hero-btn">BOOK TICKET ▶</button>
   </div>
 
 </section>
@@ -108,19 +108,19 @@
     <div class="boat-types">
 
       <div class="boat-card">
-        <img src="images/boating/motor.jpg">
+        <img src="images/boating/motor.jpg" alt="Motor Boat">
         <h4>Motor Boat</h4>
         <span>₹100</span>
       </div>
 
       <div class="boat-card">
-        <img src="images/boating/shikara.jpg">
+        <img src="images/boating/shikara.jpg" alt="Shikara Boat">
         <h4>Shikara Boat</h4>
         <span>₹100</span>
       </div>
 
       <div class="boat-card">
-        <img src="images/boating/paddle.jpg">
+        <img src="images/boating/paddle.jpg" alt="Paddle Boat">
         <h4>Paddle Boat</h4>
         <span>₹50</span>
       </div>
@@ -129,7 +129,7 @@
 
     <div class="boating-bottom">
       <div class="view-more-btn">▶ VIEW MORE DETAILS</div>
-      <div class="book-btn">BOOK TICKET ▶</div>
+      <button type="button" class="book-btn">BOOK TICKET ▶</button>
     </div>
 
   </div>
@@ -149,7 +149,7 @@
 
       <div class="ev-item">
         <span>EV-CART TICKET ₹20</span>
-        <div class="qty">
+        <div class="ev-qty">
           <button>-</button>
           <span>1</span>
           <button>+</button>
@@ -181,7 +181,7 @@
 
         <div class="booking-item">
           <span>Adult ₹10</span>
-          <div class="qty">
+          <div class="booking-qty">
             <button>-</button>
             <span>2</span>
             <button>+</button>
@@ -190,7 +190,7 @@
 
         <div class="booking-item">
           <span>Child ₹5</span>
-          <div class="qty">
+          <div class="booking-qty">
             <button>-</button>
             <span>1</span>
             <button>+</button>
@@ -204,7 +204,7 @@
 
         <div class="booking-item">
           <span>Motor ₹100</span>
-          <div class="qty">
+          <div class="booking-qty">
             <button>-</button>
             <span>1</span>
             <button>+</button>
@@ -213,7 +213,7 @@
 
         <div class="booking-item">
           <span>Shikara ₹100</span>
-          <div class="qty">
+          <div class="booking-qty">
             <button>-</button>
             <span>1</span>
             <button>+</button>
@@ -222,7 +222,7 @@
 
         <div class="booking-item">
           <span>Paddle ₹50</span>
-          <div class="qty">
+          <div class="booking-qty">
             <button>-</button>
             <span>0</span>
             <button>+</button>
@@ -236,7 +236,7 @@
 
         <div class="booking-item">
           <span>Ride ₹20</span>
-          <div class="qty">
+          <div class="booking-qty">
             <button>-</button>
             <span>0</span>
             <button>+</button>
@@ -257,8 +257,6 @@
 
 </div>
 <!-- 🔥 FINAL WRAPPER END -->
-
-</section>
 
 <!-- ================= TICKET ================= -->
 <section class="ticket">
@@ -802,9 +800,7 @@ Explore Now
     <div class="menu-top">
       <img src="images/logo/logo.svg" class="menu-logo">
 
-      <div class="close-btn" onclick="closeMenu()">
-        ✕
-      </div>
+      <div class="close-btn">✕</div>
     </div>
 
     <ul class="menu-list">
@@ -825,45 +821,12 @@ Explore Now
       <li><span>ℹ️</span> About</li>
     </ul>
 
-
   </div>
 
 </div>
 
-<script>
+<!-- ✅ JS FILE -->
+<script src="js/main.js"></script>
 
-function openMenu(){
-  document.getElementById("menu").classList.add("active");
-  document.body.style.overflow = "hidden"; // scroll lock
-}
-
-function closeMenu(){
-  document.getElementById("menu").classList.remove("active");
-  document.body.style.overflow = "auto"; // unlock
-}
-
-/* CLICK OUTSIDE CLOSE */
-document.getElementById("menu").addEventListener("click", function(e){
-  if(e.target.id === "menu"){
-    closeMenu();
-  }
-});
-
-</script>
-
-<script>
-
-function openMenu(){
-  document.getElementById("menu").classList.add("active");
-  document.body.style.overflow = "hidden";
-}
-
-function closeMenu(){
-  document.getElementById("menu").classList.remove("active");
-  document.body.style.overflow = "auto";
-}
-
-/* HERO MENU BUTTON FIX */
-document.getElementById("heroMenuBtn").addEventListener("click", openMenu);
-
-</script>
+</body>
+</html>
