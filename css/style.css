@@ -2466,43 +2466,44 @@ overflow-y:auto;
 }
 
 
+/* ================= MENU OVERLAY FIX ================= */
+
 .menu-overlay{
-  position:fixed;
+  position: fixed;
   top:0;
   left:0;
-  width:100vw;   /* 🔥 fix */
-  height:100vh;  /* 🔥 fix */
+  width:100%;
+  height:100%;
 
-  background:rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.5);
 
-  display:none;
-  justify-content:flex-end;
+  display: none; /* hidden by default */
+  justify-content: flex-end;
 
-  z-index:99999;   /* 🔥 HIGH Z-INDEX */
+  z-index: 99999;
 }
 
-/* ACTIVE */
+/* 🔥 ACTIVE hone par show hoga */
 .menu-overlay.active{
-  display:flex !important;   /* 🔥 FORCE SHOW */
+  display: flex;
 }
 
-/* PANEL */
+/* RIGHT SIDE PANEL */
 .menu-panel{
-  width:320px;
-  height:100vh;
+  width: 320px;
+  height: 100%;
+  background: #efe6d6;
 
-  background:#efe6d6;
-
-  padding:15px;
-
-  overflow-y:auto;   /* 🔥 important */
-
-  box-shadow:-10px 0 30px rgba(0,0,0,0.3);
-
-  animation:slideIn 0.3s ease;
+  transform: translateX(100%);
+  transition: 0.3s ease;
 }
 
+/* 🔥 slide animation */
+.menu-overlay.active .menu-panel{
+  transform: translateX(0);
+}
 
+/* 🔥 background freeze */
 body.menu-open{
-  overflow:hidden;
+  overflow: hidden;
 }
