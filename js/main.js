@@ -13,10 +13,18 @@ function closeMenu(){
 // ================= ALL EVENTS =================
 document.addEventListener("DOMContentLoaded", function(){
 
+  // ===== MENU ELEMENTS =====
   const menu = document.getElementById("menu");
   const heroBtn = document.getElementById("heroMenuBtn");
   const headerBtn = document.querySelector(".menu");
   const closeBtn = document.querySelector(".close-btn");
+
+  // ===== POPUP ELEMENTS =====
+  const viewBtn = document.getElementById("viewBtn");
+  const popup = document.getElementById("popup");
+  const closePopup = document.getElementById("closePopup");
+
+  // ================= MENU EVENTS =================
 
   // Header menu click
   if(headerBtn){
@@ -33,11 +41,40 @@ document.addEventListener("DOMContentLoaded", function(){
     closeBtn.addEventListener("click", closeMenu);
   }
 
-  // Outside click close
+  // Outside click close (menu)
   if(menu){
     menu.addEventListener("click", function(e){
       if(e.target === menu){
         closeMenu();
+      }
+    });
+  }
+
+  // ================= POPUP EVENTS =================
+
+  // OPEN POPUP
+  if(viewBtn){
+    viewBtn.addEventListener("click", function(){
+      if(popup){
+        popup.style.display = "flex";
+      }
+    });
+  }
+
+  // CLOSE POPUP BUTTON
+  if(closePopup){
+    closePopup.addEventListener("click", function(){
+      if(popup){
+        popup.style.display = "none";
+      }
+    });
+  }
+
+  // CLICK OUTSIDE CLOSE POPUP
+  if(popup){
+    popup.addEventListener("click", function(e){
+      if(e.target === popup){
+        popup.style.display = "none";
       }
     });
   }
