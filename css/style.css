@@ -2465,3 +2465,39 @@ overflow-y:auto;
   transform:scale(1.2);
 }
 
+
+.menu-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;   /* 🔥 fix */
+  height:100vh;  /* 🔥 fix */
+
+  background:rgba(0,0,0,0.6);
+
+  display:none;
+  justify-content:flex-end;
+
+  z-index:99999;   /* 🔥 HIGH Z-INDEX */
+}
+
+/* ACTIVE */
+.menu-overlay.active{
+  display:flex !important;   /* 🔥 FORCE SHOW */
+}
+
+/* PANEL */
+.menu-panel{
+  width:320px;
+  height:100vh;
+
+  background:#efe6d6;
+
+  padding:15px;
+
+  overflow-y:auto;   /* 🔥 important */
+
+  box-shadow:-10px 0 30px rgba(0,0,0,0.3);
+
+  animation:slideIn 0.3s ease;
+}
