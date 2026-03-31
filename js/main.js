@@ -1,13 +1,22 @@
 // ================= MENU OPEN =================
 function openMenu(){
-  document.getElementById("menu").classList.add("active");
-  document.body.style.overflow = "hidden";
+  const menu = document.getElementById("menu");
+  if(menu){
+    menu.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    // 🔥 history add
+    history.pushState({menu:true}, "");
+  }
 }
 
 // ================= MENU CLOSE =================
 function closeMenu(){
-  document.getElementById("menu").classList.remove("active");
-  document.body.style.overflow = "auto";
+  const menu = document.getElementById("menu");
+  if(menu){
+    menu.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
 }
 
 // ================= ALL EVENTS =================
@@ -26,26 +35,27 @@ document.addEventListener("DOMContentLoaded", function(){
 
   // ================= MENU EVENTS =================
 
-  // Header menu click
   if(headerBtn){
     headerBtn.addEventListener("click", openMenu);
   }
 
-  // Hero menu click
   if(heroBtn){
     heroBtn.addEventListener("click", openMenu);
   }
 
-  // Close button click
   if(closeBtn){
-    closeBtn.addEventListener("click", closeMenu);
+    closeBtn.addEventListener("click", function(){
+      closeMenu();
+      history.back(); // 🔥 back sync
+    });
   }
 
-  // Outside click close (menu)
+  // outside click menu close
   if(menu){
     menu.addEventListener("click", function(e){
       if(e.target === menu){
         closeMenu();
+        history.back(); // 🔥 sync
       }
     });
   }
@@ -55,31 +65,63 @@ document.addEventListener("DOMContentLoaded", function(){
   // 🔥 OPEN POPUP
   if(viewBtn){
     viewBtn.addEventListener("click", function(){
+
       if(popup){
         popup.style.display = "flex";
-        document.body.style.overflow = "hidden"; // 🔥 FIX (SCROLL LOCK)
+        document.body.style.overflow = "hidden";
+
+        // 🔥 history add
+        history.pushState({popup:true}, "");
       }
+
     });
   }
 
   // 🔥 CLOSE POPUP BUTTON
   if(closePopup){
     closePopup.addEventListener("click", function(){
+
       if(popup){
         popup.style.display = "none";
-        document.body.style.overflow = "auto"; // 🔥 FIX (SCROLL UNLOCK)
+        document.body.style.overflow = "auto";
+
+        history.back(); // 🔥 back sync
       }
+
     });
   }
 
   // 🔥 CLICK OUTSIDE CLOSE POPUP
   if(popup){
     popup.addEventListener("click", function(e){
+
       if(e.target === popup){
         popup.style.display = "none";
-        document.body.style.overflow = "auto"; // 🔥 FIX
+        document.body.style.overflow = "auto";
+
+        history.back(); // 🔥 sync
       }
+
     });
   }
+
+  // ================= 🔥 BACK BUTTON CONTROL =================
+  window.addEventListener("popstate", function(){
+
+    // popup open hai to close karo
+    if(popup && popup.style.display === "flex"){
+      popup.style.display = "none";
+      document.body.style.overflow = "auto";
+      return;
+    }
+
+    // menu open hai to close karo
+    if(menu && menu.classList.contains("active")){
+      menu.classList.remove("active");
+      document.body.style.overflow = "auto";
+      return;
+    }
+
+  });
 
 });
