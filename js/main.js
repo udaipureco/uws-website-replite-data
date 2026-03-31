@@ -52,29 +52,32 @@ document.addEventListener("DOMContentLoaded", function(){
 
   // ================= POPUP EVENTS =================
 
-  // OPEN POPUP
+  // 🔥 OPEN POPUP
   if(viewBtn){
     viewBtn.addEventListener("click", function(){
       if(popup){
         popup.style.display = "flex";
+        document.body.style.overflow = "hidden"; // 🔥 FIX (SCROLL LOCK)
       }
     });
   }
 
-  // CLOSE POPUP BUTTON
+  // 🔥 CLOSE POPUP BUTTON
   if(closePopup){
     closePopup.addEventListener("click", function(){
       if(popup){
         popup.style.display = "none";
+        document.body.style.overflow = "auto"; // 🔥 FIX (SCROLL UNLOCK)
       }
     });
   }
 
-  // CLICK OUTSIDE CLOSE POPUP
+  // 🔥 CLICK OUTSIDE CLOSE POPUP
   if(popup){
     popup.addEventListener("click", function(e){
       if(e.target === popup){
         popup.style.display = "none";
+        document.body.style.overflow = "auto"; // 🔥 FIX
       }
     });
   }
