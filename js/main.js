@@ -1,21 +1,27 @@
 // ================= MENU OPEN =================
 function openMenu(){
   const menu = document.getElementById("menu");
+
   if(menu){
     menu.classList.add("active");
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("menu-open");
 
-    // 🔥 history add
-    history.pushState({menu:true}, "");
+    // history add (duplicate avoid)
+    if(!menu.classList.contains("history-added")){
+      history.pushState({menu:true}, "");
+      menu.classList.add("history-added");
+    }
   }
 }
 
 // ================= MENU CLOSE =================
 function closeMenu(){
   const menu = document.getElementById("menu");
+
   if(menu){
     menu.classList.remove("active");
-    document.body.style.overflow = "auto";
+    document.body.classList.remove("menu-open");
+    menu.classList.remove("history-added");
   }
 }
 
@@ -46,23 +52,23 @@ document.addEventListener("DOMContentLoaded", function(){
   if(closeBtn){
     closeBtn.addEventListener("click", function(){
       closeMenu();
-      history.back(); // 🔥 back sync
+      history.back(); // sync back
     });
   }
 
-  // outside click menu close
+  // outside click close (menu)
   if(menu){
     menu.addEventListener("click", function(e){
       if(e.target === menu){
         closeMenu();
-        history.back(); // 🔥 sync
+        history.back();
       }
     });
   }
 
   // ================= POPUP EVENTS =================
 
-  // 🔥 OPEN POPUP
+  // OPEN POPUP
   if(viewBtn){
     viewBtn.addEventListener("click", function(){
 
@@ -70,14 +76,13 @@ document.addEventListener("DOMContentLoaded", function(){
         popup.style.display = "flex";
         document.body.style.overflow = "hidden";
 
-        // 🔥 history add
         history.pushState({popup:true}, "");
       }
 
     });
   }
 
-  // 🔥 CLOSE POPUP BUTTON
+  // CLOSE POPUP BUTTON
   if(closePopup){
     closePopup.addEventListener("click", function(){
 
@@ -85,13 +90,13 @@ document.addEventListener("DOMContentLoaded", function(){
         popup.style.display = "none";
         document.body.style.overflow = "auto";
 
-        history.back(); // 🔥 back sync
+        history.back();
       }
 
     });
   }
 
-  // 🔥 CLICK OUTSIDE CLOSE POPUP
+  // CLICK OUTSIDE CLOSE POPUP
   if(popup){
     popup.addEventListener("click", function(e){
 
@@ -99,26 +104,25 @@ document.addEventListener("DOMContentLoaded", function(){
         popup.style.display = "none";
         document.body.style.overflow = "auto";
 
-        history.back(); // 🔥 sync
+        history.back();
       }
 
     });
   }
 
-  // ================= 🔥 BACK BUTTON CONTROL =================
+  // ================= BACK BUTTON CONTROL =================
   window.addEventListener("popstate", function(){
 
-    // popup open hai to close karo
+    // popup open hai → close karo
     if(popup && popup.style.display === "flex"){
       popup.style.display = "none";
       document.body.style.overflow = "auto";
       return;
     }
 
-    // menu open hai to close karo
+    // menu open hai → close karo
     if(menu && menu.classList.contains("active")){
-      menu.classList.remove("active");
-      document.body.style.overflow = "auto";
+      closeMenu();
       return;
     }
 
