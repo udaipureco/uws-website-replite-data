@@ -4,15 +4,16 @@ let prices = {
   child: 5
 };
 
-// ================= QTY =================
+// ================= QTY (BUTTON CLICK) =================
 function changeQty(type, value){
   let el = document.getElementById(type);
-  let count = parseInt(el.innerText);
+
+  let count = parseInt(el.value) || 0;
 
   count += value;
   if(count < 0) count = 0;
 
-  el.innerText = count;
+  el.value = count;
 
   updateTotal();
 }
@@ -20,8 +21,8 @@ function changeQty(type, value){
 // ================= TOTAL =================
 function updateTotal(){
 
-  let adult = parseInt(document.getElementById("adult").innerText);
-  let child = parseInt(document.getElementById("child").innerText);
+  let adult = parseInt(document.getElementById("adult").value) || 0;
+  let child = parseInt(document.getElementById("child").value) || 0;
 
   let total = (adult * prices.adult) + (child * prices.child);
 
@@ -31,7 +32,7 @@ function updateTotal(){
     summaryHTML += `
       <div>
         <span>Adult (${adult})</span>
-        <span>₹${adult*10}</span>
+        <span>₹${adult * prices.adult}</span>
       </div>
     `;
   }
@@ -40,7 +41,7 @@ function updateTotal(){
     summaryHTML += `
       <div>
         <span>Child (${child})</span>
-        <span>₹${child*5}</span>
+        <span>₹${child * prices.child}</span>
       </div>
     `;
   }
@@ -71,10 +72,20 @@ function nextStep(){
     return;
   }
 
+  if(mobile.length !== 10){
+    alert("Enter valid 10 digit mobile number");
+    return;
+  }
+
+  if(!gmail.includes("@")){
+    alert("Enter valid Gmail ID");
+    return;
+  }
+
   alert("Booking Successful 🎉");
 }
 
-// ================= DATE SYSTEM (MANUAL MODE) =================
+// ================= DATE SYSTEM =================
 document.addEventListener("DOMContentLoaded", function(){
 
   const dateInput = document.getElementById("date");
@@ -91,14 +102,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
   // ⚠️ Only info (NO BLOCK)
   if(day === 1){
-    console.log("⚠️ Monday Closed (info only)");
+    console.log("⚠️ Monday Closed");
   }
 
   let hours = now.getHours();
   let minutes = now.getMinutes();
 
   if(hours > 16 || (hours === 16 && minutes > 30)){
-    console.log("⚠️ Booking time over (info only)");
+    console.log("⚠️ Booking time over");
   }
+
+  // ================= INPUT LIVE UPDATE =================
+  document.getElementById("adult").addEventListener("input", updateTotal);
+  document.getElementById("child").addEventListener("input", updateTotal);
 
 });
