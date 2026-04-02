@@ -1,53 +1,74 @@
+// ================= PAGE LOAD =================
 document.addEventListener("DOMContentLoaded", function(){
 
-  let data = JSON.parse(localStorage.getItem("bookingData"));
+  try {
 
-  // ❌ no data
-  if(!data){
-    alert("No booking data found");
-    window.location.href = "entrybook.html";
-    return;
+    let raw = localStorage.getItem("bookingData");
+
+    // ❌ no data → redirect
+    if(!raw){
+      window.location.replace("entrybook.html");
+      return;
+    }
+
+    let data = JSON.parse(raw);
+
+    // 🎫 Ticket HTML
+    let ticketHTML = "";
+
+    if(data.adult > 0){
+      ticketHTML += `
+        <div>
+          <span>Adult (${data.adult})</span>
+          <span>₹${data.adult * 10}</span>
+        </div>
+      `;
+    }
+
+    if(data.child > 0){
+      ticketHTML += `
+        <div>
+          <span>Child (${data.child})</span>
+          <span>₹${data.child * 5}</span>
+        </div>
+      `;
+    }
+
+    if(ticketHTML === ""){
+      ticketHTML = "<div>No tickets selected</div>";
+    }
+
+    document.getElementById("ticketDetails").innerHTML = ticketHTML;
+
+    // 💰 Total
+    document.getElementById("totalAmount").innerText =
+      "TOTAL ₹" + (data.total || 0);
+
+    // 👤 User
+    document.getElementById("name").innerText =
+      "Name: " + (data.name || "-");
+
+    document.getElementById("mobile").innerText =
+      "Mobile: " + (data.mobile || "-");
+
+    document.getElementById("gmail").innerText =
+      "Gmail: " + (data.gmail || "-");
+
+  } catch (err) {
+    console.error("Preview Load Error:", err);
+    window.location.replace("entrybook.html");
   }
-
-  // 🎫 Ticket details
-  let ticketHTML = "";
-
-  if(data.adult > 0){
-    ticketHTML += `
-      <div>
-        <span>Adult (${data.adult})</span>
-        <span>₹${data.adult * 10}</span>
-      </div>
-    `;
-  }
-
-  if(data.child > 0){
-    ticketHTML += `
-      <div>
-        <span>Child (${data.child})</span>
-        <span>₹${data.child * 5}</span>
-      </div>
-    `;
-  }
-
-  document.getElementById("ticketDetails").innerHTML = ticketHTML;
-
-  // 💰 Total
-  document.getElementById("totalAmount").innerText = "TOTAL ₹" + data.total;
-
-  // 👤 User
-  document.getElementById("name").innerText = "Name: " + data.name;
-  document.getElementById("mobile").innerText = "Mobile: " + data.mobile;
-  document.getElementById("gmail").innerText = "Gmail: " + data.gmail;
 
 });
 
-// 🔙 Back
+
+// ================= BACK =================
 function goBack(){
-  window.location.href = "entrybook.html"; // 🔥 correct page name
+  window.location.replace("entrybook.html");
 }
 
-// 💳 Payment
+
+// ================= PAYMENT =================
 function confirmBooking(){
 
   let check = document.getElementById("terms");
@@ -57,9 +78,28 @@ function confirmBooking(){
     return;
   }
 
-  alert("Payment System Coming Soon 🚀");
+  let raw = localStorage.getItem("bookingData");
 
-  // optional clear
+  if(!raw){
+    window.location.replace("entrybook.html");
+    return;
+  }
 
-  window.location.href = "index.html";
+  let data;
+
+  try {
+    data = JSON.parse(raw);
+  } catch {
+    window.location.replace("entrybook.html");
+    return;
+  }
+
+  // ❌ invalid total
+  if((data.total || 0) <= 0){
+    alert("Invalid booking");
+    return;
+  }
+
+  // 🔥 NO ALERT → DIRECT SUCCESS
+  window.location.replace("success.html");
 }
