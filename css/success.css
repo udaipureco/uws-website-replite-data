@@ -1,90 +1,170 @@
 body{
   margin:0;
-  font-family:Arial;
-  background:#efe6d6;
-  display:flex;
-  justify-content:center;
+  font-family: 'Segoe UI', sans-serif;
+  background:linear-gradient(135deg,#efe6d6,#e4dcc8);
 }
 
+/* CONTAINER */
 .container{
-  width:100%;
   max-width:420px;
-  padding:15px;
-}
-
-.card{
-  background:#fff;
+  margin:auto;
   padding:18px;
-  border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.1);
   text-align:center;
 }
 
 /* SUCCESS */
-.success-box .icon{
-  font-size:40px;
+.success-title{
+  color:#2f5e3f;
+  font-weight:800;
+  font-size:26px;
+  letter-spacing:0.5px;
 }
 
-.success-box h1{
-  margin:10px 0 5px;
-  color:#3f5f3f;
-}
-
-.success-box p{
-  font-size:14px;
+.subtitle{
   color:#666;
+  margin-bottom:22px;
+  font-size:14px;
 }
 
-/* PDF */
-.pdf-box{
-  margin:15px 0;
+/* 🎫 TICKET */
+.ticket{
+  position:relative;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter: blur(6px);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,0.05);
 }
 
-iframe{
-  width:100%;
-  height:300px;
+/* 🔥 WATERMARK */
+.ticket::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:320px;
+  height:320px;
+  background:url('../images/logo.png') no-repeat center;
+  background-size:contain;
+  transform:translate(-50%,-50%);
+  opacity:0.05;
+  z-index:0;
+}
+
+/* CONTENT ABOVE */
+.ticket *{
+  position:relative;
+  z-index:1;
+}
+
+/* HEADER */
+.ticket h2{
+  color:#2f5e3f;
+  font-weight:900;
+  letter-spacing:1px;
+  font-size:20px;
+}
+
+/* ENTRY TEXT */
+.ticket-type{
+  font-weight:700;
+  color:#222;
+  font-size:13px;
+  margin-bottom:5px;
+}
+
+/* TEXT */
+.ticket p{
+  font-size:15px;
+  color:#111;
+  margin:6px 0;
+}
+
+/* TOTAL */
+.total{
+  font-weight:900;
+  font-size:18px;
+  color:#000;
+}
+
+/* LINES */
+hr{
   border:none;
+  border-top:1px dashed #cfcfcf;
+  margin:12px 0;
+}
+
+/* QR BOX PREMIUM */
+#qrcode{
+  display:flex;
+  justify-content:center;
+  margin:15px 0;
+  padding:10px;
+  background:#fff;
   border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  box-shadow:0 5px 12px rgba(0,0,0,0.1);
+  width:fit-content;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* RULES */
+.rules{
+  text-align:left;
+  font-size:13px;
+  color:#444;
+  line-height:1.6;
+}
+
+/* FOOTER */
+.footer{
+  font-size:12px;
+  color:#777;
+  margin-top:5px;
 }
 
 /* BUTTON */
 .btn-group{
   display:flex;
-  gap:10px;
+  gap:12px;
+  margin-top:18px;
 }
 
-button{
+.btn-group button{
   flex:1;
-  padding:12px;
+  padding:13px;
   border:none;
-  border-radius:12px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#3f5f3f,#2d4b2d);
+  color:white;
   font-weight:700;
-  background:#3f5f3f;
-  color:#fff;
-  cursor:pointer;
-}
-
-.ticket{
-  background:#fff;
-  border-radius:12px;
-  padding:15px;
-  text-align:left;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
   font-size:14px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.15);
+  transition:0.2s;
 }
 
-.ticket h2{
-  text-align:center;
-  color:#3f5f3f;
+/* BUTTON HOVER */
+.btn-group button:active{
+  transform:scale(0.96);
 }
 
-.ticket hr{
-  margin:10px 0;
-}
+/* 🔥 FULL PAGE BACKGROUND LOGO */
+body::after{
+  content:"";
+  position:fixed;
+  top:50%;
+  left:50%;
+  width:600px;
+  height:600px;
 
-.note{
-  font-size:12px;
-  color:#666;
-  text-align:center;
+  background:url('../images/logo.png') no-repeat center;
+  background-size:contain;
+
+  transform:translate(-50%,-50%);
+  opacity:0.04;   /* 🔥 subtle professional */
+
+  z-index:0;
+  pointer-events:none;
 }
