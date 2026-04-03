@@ -9,7 +9,8 @@ body{
   max-width:420px;
   margin:auto;
   padding:18px;
-  text-align:center;
+  padding-bottom:90px;  /* 🔥 ye MUST hai */
+  text-align:left;
 }
 
 /* SUCCESS */
@@ -36,6 +37,8 @@ body{
   box-shadow:0 12px 30px rgba(0,0,0,0.12);
   overflow:hidden;
   border:1px solid rgba(0,0,0,0.05);
+max-width:380px;
+  margin:auto;
 }
 
 /* 🔥 WATERMARK */
@@ -54,7 +57,7 @@ body{
 }
 
 /* CONTENT ABOVE */
-.ticket *{
+.ticket > *{
   position:relative;
   z-index:1;
 }
@@ -96,6 +99,16 @@ hr{
   margin:12px 0;
 }
 
+.title-row{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+  margin-bottom:5px;
+  text-align:left;   /* 🔥 important */
+}
+
+
 /* QR BOX PREMIUM */
 #qrcode{
   display:flex;
@@ -127,22 +140,40 @@ hr{
 
 /* BUTTON */
 .btn-group{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+
   display:flex;
-  gap:12px;
-  margin-top:18px;
+  gap:10px;
+
+  padding:12px 15px; /* 🔥 side padding add */
+  box-sizing:border-box; /* 🔥 important */
+
+  background:#efe6d6;
+  z-index:999;
 }
 
 .btn-group button{
   flex:1;
-  padding:13px;
+  padding:14px;
   border:none;
   border-radius:14px;
   background:linear-gradient(135deg,#3f5f3f,#2d4b2d);
   color:white;
   font-weight:700;
   font-size:14px;
-  box-shadow:0 6px 15px rgba(0,0,0,0.15);
-  transition:0.2s;
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+  min-width:0; /* 🔥 overflow fix */
+}
+
+.btn-group button:active{
+  transform:scale(0.96);
+}
+
+.btn-group button:active{
+  transform:scale(0.96);
 }
 
 /* BUTTON HOVER */
@@ -167,4 +198,11 @@ body::after{
 
   z-index:0;
   pointer-events:none;
+}
+
+.logo-small{
+  width:40px;
+  height:40px;
+  object-fit:contain;
+  flex-shrink:0;   /* 🔥 important */
 }
