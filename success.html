@@ -3,70 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color" content="#3f5f3f">
-
 <title>Booking Success</title>
 
 <link rel="stylesheet" href="css/success.css">
 
-<!-- 🔥 jsPDF CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- QR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 </head>
+
 <body>
 
 <div class="container">
 
-  <div class="card">
+  <h2 class="success-title">✅ Booking Successful</h2>
+  <p class="subtitle">Your ticket has been generated</p>
 
-    <!-- ✅ SUCCESS -->
-    <div class="success-box">
-      <div class="icon">✅</div>
-      <h1>Booking Successful</h1>
-      <p>Your ticket has been generated</p>
-    </div>
+  <!-- 🎫 TICKET -->
+  <div class="ticket" id="ticket">
 
-    <!-- 📄 PDF PREVIEW -->
-    <div class="pdf-box" id="ticketBox">
+  <!-- 🔥 WATERMARK IMAGE (YAHI ADD KARNA HAI) -->
+  <img src="images/logo.png" class="watermark">
 
-  <div class="ticket">
+  <h2>🌿 UDAIPUR WILDLIFE SANCTUARY</h2>
+  <p class="ticket-type">ENTRY TICKET</p>
 
-    <h2>🎫 SAMPLE TICKET</h2>
+  <hr>
 
-    <p><strong>Udaipur Wildlife Sanctuary</strong></p>
+  <p><b>Booking ID:</b> <span id="bookingId"></span></p>
 
-    <hr>
+  <hr>
 
-    <p id="tName"></p>
-    <p id="tMobile"></p>
+  <p id="name"></p>
+  <p id="mobile"></p>
+  <p id="gmail"></p>
 
-    <hr>
+  <hr>
 
-    <p id="tAdult"></p>
-    <p id="tChild"></p>
-    <p id="tTotal"></p>
+  <p id="adult"></p>
+  <p id="child"></p>
+  <p class="total" id="total"></p>
 
-    <hr>
+  <hr>
 
-    <p id="tDate"></p>
+  <p id="date"></p>
+  <p>Time: 9 AM – 5 PM</p>
 
-    <p class="note">Show this ticket at entry gate</p>
+  <hr>
 
+  <svg id="barcode"></svg>
+
+  <hr>
+
+  <div class="rules">
+    <p>• Non-refundable</p>
+    <p>• Valid for selected date only</p>
   </div>
+
+  <hr>
+
+  <p class="footer">Issued by UWS Authority</p>
 
 </div>
 
-    <!-- 🔘 BUTTONS -->
-    <div class="btn-group">
-      <button onclick="goHome()">Back to Home</button>
-      <button onclick="downloadPDF()">Download Ticket</button>
-    </div>
-
+  <!-- BUTTON -->
+  <div class="btn-group">
+    <button onclick="goHome()">Back to Home</button>
+    <button onclick="downloadPDF()">Download Ticket</button>
   </div>
 
 </div>
 
 <script src="js/success.js"></script>
+
+<!-- PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+
 </body>
 </html>
