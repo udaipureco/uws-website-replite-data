@@ -94,22 +94,31 @@ function downloadPDF(){
   let ticket = document.getElementById("ticket");
 
   html2canvas(ticket, {
-    scale: 3,
+    scale: 2, // 🔥 reduce size (3 → 2)
     useCORS: true
   }).then(canvas => {
 
-    let img = canvas.toDataURL("image/png");
+    let img = canvas.toDataURL("image/jpeg", 0.8); // 🔥 compress
 
     let pdf = new jsPDF("p","mm","a4");
 
     let pageWidth = pdf.internal.pageSize.getWidth();
+    let pageHeight = pdf.internal.pageSize.getHeight();
 
-    let imgWidth = 170;
+    // 🔥 FULL A4 FIT CALCULATION
+    let imgWidth = pageWidth - 20; // margin
     let imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-    let x = (pageWidth - imgWidth) / 2;
+    // 🔥 CENTER + FIT
+    if(imgHeight > pageHeight - 20){
+      imgHeight = pageHeight - 20;
+      imgWidth = (canvas.width * imgHeight) / canvas.height;
+    }
 
-    pdf.addImage(img, 'PNG', x, 10, imgWidth, imgHeight);
+    let x = (pageWidth - imgWidth) / 2;
+    let y = 10;
+
+    pdf.addImage(img, 'JPEG', x, y, imgWidth, imgHeight);
 
     pdf.save("UWS_Ticket.pdf");
 
