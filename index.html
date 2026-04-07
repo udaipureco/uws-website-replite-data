@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Udaipur Wildlife Sanctuary</title>
+
+<!-- MOBILE TOP BAR COLOR -->
+<meta name="theme-color" content="#3f5f3f">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+
+  <div class="logo">
+    <img src="images/logo/logo.svg" alt="logo">
+    <span>UDAIPUR WILDLIFE SANCTUARY</span>
+  </div>
+
+  <div class="menu">
+    <svg class="menu-icon" viewBox="0 0 40 40"
+  stroke="#efe6d6" stroke-width="3"
+  stroke-linecap="round" stroke-linejoin="round">
+      <line x1="8" y1="12" x2="32" y2="12"/>
+      <line x1="8" y1="20" x2="32" y2="20"/>
+      <line x1="8" y1="28" x2="32" y2="28"/>
+    </svg>
+  </div>
+
+</header>
+
+
+<section class="hero">
+
+  <!-- BACKGROUND -->
+  <div class="hero-bg"></div>
+
+  <!-- TOP CONTROLS -->
+  <div class="hero-controls">
+
+    <div class="left-controls">
+      <div class="ctrl-btn">हिंदी</div>
+      <div class="ctrl-btn">English</div>
+    </div>
+
+    <div class="ctrl-btn menu-btn" id="heroMenuBtn">
+      <svg viewBox="0 0 32 32" class="menu-svg">
+        <circle cx="10" cy="10" r="5" fill="#efe6d6"/>
+        <path d="M2 26c0-5 4-8 8-8s8 3 8 8" fill="#efe6d6"/>
+        <circle cx="24" cy="8" r="2" fill="#efe6d6"/>
+        <circle cx="24" cy="14" r="2" fill="#efe6d6"/>
+        <circle cx="24" cy="20" r="2" fill="#efe6d6"/>
+      </svg>
+      <span>MENU</span>
+    </div>
+
+  </div>
+
+  <!-- CENTER CONTENT -->
+  <div class="hero-center">
+
+    <h1>Explore Udaipur Wildlife Sanctuary</h1>
+
+    <p>
+      Discover the untamed beauty of nature,<br>
+      home to diverse wildlife in the heart of Udaipur
+    </p>
+
+    <!-- TICKETS -->
+    <div class="hero-tickets">
+      <div class="ticket-box">ADULT ENTRY<br><span>TICKET ₹10</span></div>
+      <div class="ticket-box">CHILD ENTRY<br><span>TICKET ₹5</span></div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM BUTTONS -->
+  <div class="hero-bottom">
+    <button id="viewBtn" class="hero-btn">  ▶ VIEW MORE DETAILS </button>
+    <button onclick="window.location.href='pages/entry/booking.html'" class="hero-btn">
+  BOOK TICKET ▶
+</button>
+
+</section>
+
+<!-- 🔥 POPUP START -->
+<div class="popup" id="popup">
+
+  <div class="popup-box">
+
+    <div class="popup-header">
+      <span id="closePopup">✕</span>
+      <h2>Entry Ticket Information</h2>
+    </div>
+
+    <div class="popup-content">
+
+      <h3>🎫 Entry Tickets</h3>
+      <p>Adult ₹10 (Above 4.5 ft)</p>
+      <p>Child ₹5 (Below 4.5 ft)</p>
+
+      <h3>🕒 Timing</h3>
+      <p>9 AM – 5 PM</p>
+      <p>Last Booking: 4:30 PM</p>
+
+      <h3>⚠ Important</h3>
+      <p>Enter valid Gmail</p>
+      <p>Ticket will be sent to Gmail</p>
+      <p>Show ticket at entry gate</p>
+
+    </div>
+
+  </div>
+
+</div>
+<!-- 🔥 POPUP END -->
+
+<!-- ================= BOATING ================= -->
+
+<section class="boating-box">
+
+  <div class="boating-content">
+
+    <h2 class="boating-title">Boating Experience</h2>
+
+    <p class="boating-text">
+      Enjoy peaceful rides on serene waters surrounded by nature and wildlife.
+    </p>
+
+    <div class="boat-types">
+
+      <div class="boat-card">
+        <img src="images/boating/motor.jpg" alt="Motor Boat">
+        <h4>Motor Boat</h4>
+        <span>₹100</span>
+      </div>
+
+      <div class="boat-card">
+        <img src="images/boating/shikara.jpg" alt="Shikara Boat">
+        <h4>Shikara Boat</h4>
+        <span>₹100</span>
+      </div>
+
+      <div class="boat-card">
+        <img src="images/boating/paddle.jpg" alt="Paddle Boat">
+        <h4>Paddle Boat</h4>
+        <span>₹50</span>
+      </div>
+
+    </div>
+
+    <div class="boating-bottom">
+      <div class="view-more-btn" id="openBoatingPopup">   ▶ VIEW MORE DETAILS </div>
+      <button 
+  type="button" 
+  class="book-btn"
+  onclick="window.location.href='pages/boating/booking.html'">
+  BOOK TICKET ▶
+</button>
+    </div>
+
+  </div>
+
+<!-- 🔥 BOATING POPUP -->
+<div class="popup" id="boatingPopup">
+
+  <div class="popup-box">
+
+    <!-- HEADER -->
+    <div class="popup-header">
+      <span id="closeBoating">✕</span>
+      <h2>🚤 Boating Details</h2>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="popup-content">
+
+      <h3>🕒 Booking Time</h3>
+      <p>9 AM TO 5 PM</p>
+
+      <h3>🚤 Boat Types</h3>
+      <p>1. Motor Boat</p>
+      <p>2. Shikara Boat</p>
+      <p>3. Paddle Boat</p>
+
+      <hr>
+
+      <h3>1️⃣ Motor Boat</h3>
+      <p>₹100 per person</p>
+      <p>Under 5 year child free (guardian responsibility)</p>
+      <p>Capacity: 1 to 11 persons</p>
+      <p>Riding Time: 20 minutes</p>
+
+      <h3>2️⃣ Shikara Boat</h3>
+      <p>₹100 per person</p>
+      <p>No child allowed</p>
+      <p>Capacity: 2 persons</p>
+      <p>Riding Time: 20 minutes</p>
+
+      <h3>3️⃣ Paddle Boat</h3>
+      <p>₹50 per person</p>
+      <p>No child allowed</p>
+      <p>Capacity: 2 to 4 persons</p>
+      <p>Riding Time: 40 minutes</p>
+
+      <hr>
+
+      <h3>⚠ Rules & Guidelines</h3>
+
+      <ul>
+        <li>Follow queue system</li>
+        <li>Wear life jacket</li>
+        <li>Do not throw garbage</li>
+        <li>Do not disturb birds</li>
+        <li>No movement inside boat</li>
+        <li>Follow staff instructions</li>
+        <li>Parents responsible for children</li>
+      </ul>
+
+      <p class="warning">
+        ⚠ Tickets are non-cancellable and non-refundable
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+<!-- 🔥 FINAL WRAPPER START -->
+<div class="booking-wrapper">
+
+  <!-- EV-CART -->
+  <section class="ev-cart">
+
+    <div class="ev-content">
+
+      <h2 class="ev-title">EV-CART Booking</h2>
+      <p class="ev-sub">Book your eco vehicle ride easily</p>
+
+      <div class="ev-item">
+        <span>EV-CART TICKET ₹20</span>
+        <div class="ev-qty">
+          <button>-</button>
+          <span>1</span>
+          <button>+</button>
+        </div>
+      </div>
+
+      <div class="ev-total">TOTAL: ₹20</div>
+
+      <div class="ev-bottom">
+        <div class="ev-btn" id="openEvPopup">
+  ▶ VIEW MORE DETAILS
+</div>
+        <button    class="ev-btn"   onclick="window.location.href='pages/ev/booking.html'">   BOOK NOW ▶ </button>
+      </div>
+
+    </div>
+
+<!-- 🚗 EV POPUP -->
+<div class="popup" id="evPopup">
+
+  <div class="popup-box">
+
+    <!-- HEADER -->
+    <div class="popup-header">
+      <h2>🚗 EV Cart Details</h2>
+      <span id="closeEv">✕</span>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="popup-content">
+
+      <div class="ev-line">🕒 <b>Time:</b> 9 AM – 5 PM</div>
+      <div class="ev-line">💰 <b>Price:</b> ₹20 per person</div>
+      <div class="ev-line">👶 Under 5 year old child free</div>
+
+      <hr>
+
+      <div class="ev-line">🚗 <b>Distance:</b> 2.5 KM</div>
+      <div class="ev-line">⏱ <b>Duration:</b> 10–12 minutes</div>
+      <div class="ev-line">👥 <b>Capacity:</b> 6–12 persons</div>
+
+      <hr>
+
+      <div class="ev-line">📍 Covers main Entry Gate To Tourism point</div>
+
+      <hr>
+
+      <div class="ev-line warning">⚠ Follow safety rules</div>
+      <div class="ev-line danger">❌ Non-refundable ticket</div>
+
+    </div>
+
+  </div>
+
+</div>
+
+  </section>
+
+  <!-- ✅ ALL BOOKING (AB YAHI HOGA — KOI DUPLICATE NAHI) -->
+  <section class="all-booking" id="booking">
+
+    <div class="booking-content">
+
+      <h2 class="booking-title">All In One Booking</h2>
+      <p class="booking-sub">Book everything in one place</p>
+
+      <!-- ENTRY -->
+      <div class="booking-group">
+        <h3>🎫 ENTRY TICKETS</h3>
+
+        <div class="booking-item">
+          <span>Adult ₹10</span>
+          <div class="booking-qty">
+            <button>-</button>
+            <span>2</span>
+            <button>+</button>
+          </div>
+        </div>
+
+        <div class="booking-item">
+          <span>Child ₹5</span>
+          <div class="booking-qty">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOATING -->
+      <div class="booking-group">
+        <h3>🚤 BOATING</h3>
+
+        <div class="booking-item">
+          <span>Motor ₹100</span>
+          <div class="booking-qty">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </div>
+        </div>
+
+        <div class="booking-item">
+          <span>Shikara ₹100</span>
+          <div class="booking-qty">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </div>
+        </div>
+
+        <div class="booking-item">
+          <span>Paddle ₹50</span>
+          <div class="booking-qty">
+            <button>-</button>
+            <span>0</span>
+            <button>+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EV -->
+      <div class="booking-group">
+        <h3>🚗 EV-CART</h3>
+
+        <div class="booking-item">
+          <span>Ride ₹20</span>
+          <div class="booking-qty">
+            <button>-</button>
+            <span>0</span>
+            <button>+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-total">TOTAL: ₹225</div>
+
+      <div class="booking-bottom">
+        <div class="booking-btn">▶ VIEW DETAILS</div>
+        <div class="booking-btn">BOOK NOW ▶</div>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+<!-- 🔥 FINAL WRAPPER END -->
+
+<!-- ================= TICKET ================= -->
+<section class="ticket">
+
+<div class="ticket-title">
+<h2>Udaipur Wildlife Sanctuary</h2>
+</div>
+
+<p class="ticket-sub">-----ONLINE EVERY TICKET-----</p>
+
+<button class="btn-main" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+ BOOK TICKET ▶
+</button>
+
+</section>
+<!-- ================= TOURISM START TITLE ================= -->
+
+<section class="ticket">
+
+<div class="ticket-title">
+<h2>Explore Udaipur Tourism Places</h2>
+</div>
+
+<p class="ticket-sub">-----LETS GO ENJOY NATURE-----</p>
+
+</section>
+
+<!-- ================= ATTRACTIONS ================= -->
+<section class="services services-bg">
+
+<div class="card scroll-animate">
+<img src="images/attractions/interpre.jpg">
+<h3>Interpretation Centre</h3>
+
+<div class="explore-btn">
+<svg viewBox="0 0 180 44">
+<rect x="1" y="1" width="178" height="42" rx="12" fill="#3f5f3f"/>
+<text x="80" y="27" text-anchor="middle" font-size="18" font-weight="700" fill="#efe6d6">
+Explore Now
+</text>
+<polygon points="148,17 160,22 148,27" fill="#efe6d6"/>
+</svg>
+</div>
+
+</div>
+
+<div class="card scroll-animate">
+<img src="images/attractions/butterfly.jpg">
+<h3>Butterfly Garden</h3>
+
+<div class="explore-btn">
+<svg viewBox="0 0 180 44">
+<rect x="1" y="1" width="178" height="42" rx="12" fill="#3f5f3f"/>
+<text x="80" y="27" text-anchor="middle" font-size="18" font-weight="700" fill="#efe6d6">
+Explore Now
+</text>
+<polygon points="148,17 160,22 148,27" fill="#efe6d6"/>
+</svg>
+</div>
+
+</div>
+
+<div class="card scroll-animate">
+<img src="images/attractions/bird.jpg">
+<h3>Bird Watching Station</h3>
+
+<div class="explore-btn">
+<svg viewBox="0 0 180 44">
+<rect x="1" y="1" width="178" height="42" rx="12" fill="#3f5f3f"/>
+<text x="80" y="27" text-anchor="middle" font-size="18" font-weight="700" fill="#efe6d6">
+Explore Now
+</text>
+<polygon points="148,17 160,22 148,27" fill="#efe6d6"/>
+</svg>
+</div>
+
+</div>
+
+<div class="card scroll-animate">
+<img src="images/attractions/entry.jpg">
+<h3>Entry Gate</h3>
+
+<div class="explore-btn">
+<svg viewBox="0 0 180 44">
+<rect x="1" y="1" width="178" height="42" rx="12" fill="#3f5f3f"/>
+<text x="80" y="27" text-anchor="middle" font-size="18" font-weight="700" fill="#efe6d6">
+Explore Now
+</text>
+<polygon points="148,17 160,22 148,27" fill="#efe6d6"/>
+</svg>
+</div>
+
+</div>
+
+<!-- CARD 5 -->
+<div class="card scroll-animate">
+  <img src="images/attractions/arany.jpg">
+  <h3>Aranya Bihar</h3>
+
+  <div class="explore-btn">
+    <svg viewBox="0 0 180 44">
+      <rect x="1" y="1" width="178" height="42" rx="12" fill="#3f5f3f"/>
+      <text x="80" y="27" text-anchor="middle" font-size="18" font-weight="700" fill="#efe6d6">
+        Explore Now
+      </text>
+      <polygon points="148,17 160,22 148,27" fill="#efe6d6"/>
+    </svg>
+  </div>
+</div>
+
+<!-- CARD 6 -->
+<div class="card scroll-animate">
+  <img src="images/attractions/childpark.jpg">
+  <h3>Children Park</h3>
+
+  <div class="explore-btn">
+    <svg viewBox="0 0 180 44">
+      <rect x="1" y="1" width="178" height="42" rx="12" fill="#3f5f3f"/>
+      <text x="80" y="27" text-anchor="middle" font-size="18" font-weight="700" fill="#efe6d6">
+        Explore Now
+      </text>
+      <polygon points="148,17 160,22 148,27" fill="#efe6d6"/>
+    </svg>
+  </div>
+</div>
+
+</section>
+
+<!-- ================= BIRD SANCTUARY ================= -->
+
+<section class="bird-sanctuary">
+
+  <div class="bird-box">
+
+    <!-- LEFT IMAGE -->
+    <div class="bird-img">
+      <img src="images/bird/bird.jpg" alt="Bird Sanctuary">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="bird-content">
+      <h2>Udaipur Bird Sanctuary</h2>
+
+      <button class="bird-btn">
+        View More Details →
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= WILDLIFE SANCTUARY ================= -->
+
+<section class="wildlife">
+
+  <div class="wildlife-box">
+
+    <!-- LEFT IMAGE -->
+    <div class="wildlife-img">
+      <img src="images/wildlife/wildlife.jpg" alt="Wildlife Sanctuary">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="wildlife-content">
+      <h2>Udaipur Wildlife Sanctuary</h2>
+
+      <button class="wildlife-btn">
+        View More Details →
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= ECO HUT ================= -->
+<section class="eco-hut">
+
+  <div class="eco-box">
+
+    <!-- LEFT IMAGE -->
+    <div class="eco-img">
+      <img src="images/eco/eco-hut.jpg" alt="Eco Hut">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="eco-content">
+      <h2>Eco-Hut</h2>
+      <p>Coming Soon</p>
+
+      <a href="pages/ecohut/ecohut.html" class="eco-btn">
+  Coming Soon →
+</a>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= LOCATION ================= -->
+<section class="location" id="location">
+
+  <!-- HEADER -->
+  <div class="loc-header">
+
+    <div class="loc-title">
+      <span class="loc-icon">📍</span>
+      <h2>LOCATION & TIMING</h2>
+      <span class="loc-line"></span>
+    </div>
+
+    <div class="loc-address">
+      <p>📍 Udaipur, Bettiah, West Champaran</p>
+      <p>845438, Bihar</p>
+    </div>
+
+<!-- ================= TIMING ================= -->
+
+<div class="loc-timing">
+
+  <h3>🕒 Holiday & Timing</h3>
+
+  <div class="timing-box">
+
+    <p><strong>Opening Time:</strong> 9 AM – 5 PM</p>
+
+    <p class="closed">Monday: Closed</p>
+
+    <p>Tuesday – Sunday: Open</p>
+
+  </div>
+
+</div>
+
+  </div>
+
+  <!-- MAP BOX -->
+  <div class="map-box">
+
+    <!-- MAP IMAGE -->
+    <img src="images/map/map.jpg" class="map-img">
+
+    <!-- BUTTONS -->
+    <div class="map-overlay-btns">
+
+      <button class="map-btn" onclick="openMap()">
+  <span class="icon">📍</span>
+  Open in Maps
+</button>
+
+<button class="map-btn" onclick="getDirections()">
+  <span class="icon">➤</span>
+  Get Directions
+</button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!--================= FACILITIES ================ -->
+
+<section class="facilities">
+
+  <!-- TITLE -->
+  <div class="fac-title">
+    <span class="fac-icon">🌿</span>
+    <h2>FACILITIES</h2>
+    <span class="fac-icon">🌿</span>
+  </div>
+
+  <!-- GRID BOX -->
+  <div class="fac-grid">
+
+    <!-- CARD 1 -->
+    <div class="fac-card">
+      <img src="images/facilities/boating.jpg">
+      <h3>Boating</h3>
+      <a href="pages/boating/booking.html" class="book-btn">
+  Book Ticket
+</a>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="fac-card">
+      <img src="images/facilities/ekart.jpg">
+      <h3>E-Kart</h3>
+      <a href="pages/ev/booking.html" class="book-btn">
+    Book Ticket
+  </a>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="fac-card">
+      <img src="images/facilities/cafe.jpg">
+      <h3>Cafeteria</h3>
+      <a href="pages/cafeteria/menu.html" class="book-btn">View Menu</a>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="fac-card">
+      <img src="images/facilities/bicycle.jpg">
+      <h3>Bicycle</h3>
+      <a href="pages/bicycle/rent.html" class="book-btn">Rent Now</a>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="fac-card">
+      <img src="images/facilities/parking.jpg">
+      <h3>Parking</h3>
+      <a href="/pages/parking/parking.html" class="book-btn">View Details</a>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="fac-card">
+      <img src="images/facilities/ecohut.jpg">
+      <h3>Eco-Hut Coming Soon</h3>
+      <a href="pages/ecohut/ecohut.html" class="book-btn">View Details</a>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= SOUVENIR SHOP ================= -->
+<section class="souvenir">
+
+  <div class="souvenir-box">
+
+    <!-- LEFT IMAGE -->
+    <div class="souvenir-img">
+      <img src="images/souvenir/shop.jpg" alt="Souvenir Shop">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="souvenir-content">
+      <h2>Souvenir Shop</h2>
+      <p>Coming Soon</p>
+
+      <button class="souvenir-btn">
+        Coming Soon →
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery">
+
+  <!-- HEADER -->
+  <div class="gallery-header">
+
+    <div class="gallery-title">
+      <span class="line"></span>
+
+      <!-- LEFT LEAF -->
+      <svg class="leaf" viewBox="0 0 24 24">
+        <path d="M2 12c6-10 18-10 20 0-6 2-14 2-20 0z" fill="#3f5f3f"/>
+      </svg>
+
+      <h2>Photo Gallery</h2>
+
+      <!-- RIGHT LEAF -->
+      <svg class="leaf" viewBox="0 0 24 24">
+        <path d="M2 12c6-10 18-10 20 0-6 2-14 2-20 0z" fill="#3f5f3f"/>
+      </svg>
+
+      <span class="line"></span>
+    </div>
+
+    <button class="view-btn">View All →</button>
+
+  </div>
+
+  <!-- IMAGES GRID -->
+  <div class="gallery-grid">
+
+    <img src="images/gallery/g1.jpg">
+    <img src="images/gallery/g2.jpg">
+    <img src="images/gallery/g3.jpg">
+    <img src="images/gallery/g4.jpg">
+
+  </div>
+
+</section>
+
+<!-- ================= RULES ================= -->
+<section class="rules-section">
+
+  <div class="rules-box">
+
+    <!-- TITLE -->
+    <div class="rules-title">
+      <span>❗</span>
+      <h2>RULES & GUIDELINES</h2>
+    </div>
+
+    <!-- RULES LIST -->
+    <div class="rules-list">
+
+      <div class="rule-item">
+        <span class="num">1</span>
+        <p>🐾 Do Not Tease Animals</p>
+        <span class="arrow">›</span>
+      </div>
+
+      <div class="rule-item">
+        <span class="num">2</span>
+        <p>📏 Maintain Safe Distance</p>
+        <span class="arrow">›</span>
+      </div>
+
+      <div class="rule-item">
+        <span class="num">3</span>
+        <p>🚫 No Outside Food</p>
+        <span class="arrow">›</span>
+      </div>
+
+      <div class="rule-item">
+        <span class="num">4</span>
+        <p>🗑 Use Dustbin</p>
+        <span class="arrow">›</span>
+      </div>
+
+      <div class="rule-item">
+        <span class="num">5</span>
+        <p>👮 Follow Staff Instructions</p>
+        <span class="arrow">›</span>
+      </div>
+
+      <div class="rule-item">
+        <span class="num">6</span>
+        <p>👶 Children must be supervised</p>
+        <span class="arrow">›</span>
+      </div>
+
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-title">
+      <span>❓</span>
+      <h2>FREQUENTLY ASKED QUESTIONS</h2>
+    </div>
+
+    <!-- FAQ LIST -->
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <p>🕒 Entry Timing</p>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Opening Time: 9 AM – 5 PM (Monday Closed)</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <p>🎫 Ticket Price</p>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Adult: ₹10 | Child: ₹5</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <p>🅿 Parking Charges</p>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Four Wheeler: ₹100 | Two Wheeler: ₹20 | Bicycle: ₹10</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <p>🚤 Boating Charges</p>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Motor & Shikara: ₹100 | Paddle Boat: ₹50</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <p>📞 Contact Number</p>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Contact at Entry Gate Office</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <p>🌐 Online Booking</p>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Online booking will be available soon</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= QUICK ACTIONS ================= -->
+<section class="quick-actions">
+
+  <div class="action-box" onclick="scrollToLocation()">
+  <div class="action-icon">📍</div>
+  <h3>Location</h3>
+</div>
+
+  <div class="action-box" onclick="window.location.href='pages/contact/contact.html'">
+  <div class="action-icon">📞</div>
+  <h3>Contact Us</h3>
+</div>
+
+  <div class="action-box" onclick="window.location.href='pages/complaint/complaint.html'">
+  <div class="action-icon">⚠️</div>
+  <h3>Complain</h3>
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <!-- TOP LINKS -->
+  <div class="footer-links">
+
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li>Home</li>
+        <li>Tickets</li>
+        <li>Gallery</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>What's Here</h3>
+      <ul>
+        <li>Attractions</li>
+        <li>Facilities</li>
+        <li>Gallery</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Programs</h3>
+      <ul>
+        <li>Educational Tours</li>
+        <li>Events</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL + CONTACT -->
+  <div class="footer-social">
+
+    <span>📘</span>
+    <span>📸</span>
+    <span>▶️</span>
+    <span>🐦</span>
+
+    <a href="pages/contact/contact.html">   <a href="pages/contact/contact.html" class="contact-text">   Contact Us </a>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-copy">
+    © 2026 Udaipur Wildlife Sanctuary
+  </div>
+
+</footer>
+
+<!-- MENU OVERLAY -->
+<div class="menu-overlay" id="menu">
+
+  <div class="menu-panel">
+
+    <div class="menu-top">
+      <img src="images/logo/logo.svg" class="menu-logo">
+
+      <div class="close-btn">✕</div>
+    </div>
+
+    <ul class="menu-list">
+      <li><span>🏠</span> Home</li>
+      <li><span>🎫</span> Book Tickets</li>
+      <li><span>🚤</span> Boating</li>
+      <li><span>🚗</span> EV Cart</li>
+      <li><span>🚲</span> Bicycle Rental</li>
+      <li><span>🌿</span> Attractions</li>
+      <li><span>🏕</span> Eco Stay</li>
+      <li><span>🖼</span> Gallery</li>
+      <li><span>🧭</span> Plan Visit</li>
+      <li><span>📍</span> Location & Timing</li>
+      <li><span>🎟</span> Pricing</li>
+      <li><span>🧾</span> Rules</li>
+      <li><span>📞</span> Contact</li>
+      <li><span>⚠️</span> Feedback</li>
+      <li><span>ℹ️</span> About</li>
+    </ul>
+
+<script src="js/main.js"></script>
+  </div>
+
+</div>
+
+<!-- ✅ JS FILE -->
+<script src="../../js/contact/contact.js"></script>
+
+</body>
+</html>

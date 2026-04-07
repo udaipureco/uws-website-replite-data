@@ -1,0 +1,100 @@
+:root{
+  --purple:#6a11cb;
+  --blue:#2575fc;
+  --bg:#f2f3f7;
+}
+
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:var(--bg);
+  max-width:420px;
+  margin:auto;
+}
+
+/* HEADER */
+.header{
+  padding:14px;
+  text-align:center;
+  font-weight:900;
+  background:#ddd;
+}
+
+/* TOP */
+.success-top{
+  text-align:center;
+  margin:15px;
+}
+
+.success-top h2{
+  color:#0a7f2e;
+  margin-bottom:5px;
+}
+
+.success-top p{
+  color:#666;
+}
+
+/* TICKET */
+.ticket-card{
+  background:#fff;
+  margin:12px;
+  padding:18px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+.title{
+  text-align:center;
+  color:var(--purple);
+  font-weight:900;
+}
+
+.subtitle{
+  text-align:center;
+  color:#666;
+  margin-bottom:10px;
+}
+
+/* ROW */
+.row{
+  display:flex;
+  justify-content:space-between;
+  margin:8px 0;
+  font-size:15px;
+}
+
+/* TOTAL */
+.total{
+  text-align:center;
+  color:var(--purple);
+  font-weight:900;
+  margin:15px 0;
+}
+
+/* BUTTON */
+.btn-group{
+  display:flex;
+  gap:10px;
+  padding:12px;
+}
+
+.btn-group button{
+  flex:1;
+  padding:14px;
+  border:none;
+  border-radius:25px;
+  font-weight:900;
+}
+
+/* HOME */
+.home{
+  background:#ccc;
+}
+
+/* DOWNLOAD */
+.download{
+  background:linear-gradient(135deg,#6a11cb,#2575fc);
+  color:#fff;
+}
