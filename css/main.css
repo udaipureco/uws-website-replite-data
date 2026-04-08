@@ -2925,3 +2925,7 @@ a:hover{
 .menu-overlay.active .menu-panel{
   transform:translateX(0);
 }
+
+.menu-overlay {
+  transition: 0.4s ease;
+}
