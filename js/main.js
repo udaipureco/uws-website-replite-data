@@ -16,12 +16,10 @@ function openMenu(){
     document.body.style.overflow = "hidden";
 
     isMenuOpen = true;
-
-    history.pushState({menu:true}, "");
   }
 }
 
-function closeMenu(skipHistory = false){
+function closeMenu(){
   const menu = document.getElementById("menu");
 
   if(menu && isMenuOpen){
@@ -29,10 +27,6 @@ function closeMenu(skipHistory = false){
     document.body.style.overflow = "auto";
 
     isMenuOpen = false;
-
-    if(!skipHistory && history.state && history.state.menu){
-      history.back();
-    }
   }
 }
 
@@ -116,65 +110,106 @@ document.addEventListener("DOMContentLoaded", function(){
     });
   }
 
+  // ================= COMMON SCROLL FUNCTION =================
+  function scrollToSection(id){
 
-  // ================= BACK BUTTON =================
+    const section = document.getElementById(id);
 
-  window.addEventListener("popstate", () => {
+    closeMenu();
 
-    if(entryPopup && entryPopup.style.display === "flex"){
-      entryPopup.style.display = "none";
-      document.body.style.overflow = "auto";
-      return;
-    }
+    setTimeout(() => {
 
-    if(isMenuOpen){
-      closeMenu(true); // 🔥 important (no history loop)
-      return;
-    }
+      if(section){
+        const header = document.querySelector(".header");
+        const offset = header ? header.offsetHeight + 40 : 140; // 🔥 FIXED OFFSET
 
+        const y = section.getBoundingClientRect().top + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: y,
+          behavior: "smooth"
+        });
+      }
+
+    }, 300);
+  }
+
+
+  // ================= MENU SCROLL BUTTONS =================
+
+  document.getElementById("menuGalleryBtn")?.addEventListener("click", (e) => {
+    e.stopPropagation(); // 🔥 FIX
+    scrollToSection("gallery");
   });
 
-});
+  document.getElementById("menuBoatingBtn")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    scrollToSection("boating");
+  });
+
+  document.getElementById("menuLocationBtn")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    scrollToSection("location");
+  });
 
 
-// ================= COMMON SCROLL FUNCTION =================
-
-function scrollToSection(id){
-
-  const section = document.getElementById(id);
-
-  closeMenu();
-
-  setTimeout(() => {
-
-    if(section){
-      const header = document.querySelector(".header");
-      const offset = header ? header.offsetHeight + 20 : 120;
-
-      const y = section.getBoundingClientRect().top + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: y,
-        behavior: "smooth"
-      });
-    }
-
-  }, 300);
-}
+  // ================= MENU EV SCROLL =================
+  document.getElementById("menuEvBtn")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    scrollToSection("ev");
+  });
 
 
-// ================= MENU SCROLL BUTTONS =================
+  // ================= MENU BOOKING SCROLL =================
+  const bookingBtn = document.getElementById("menuBookingBtn");
 
-document.getElementById("menuGalleryBtn")?.addEventListener("click", () => {
-  scrollToSection("gallery");
-});
+  if(bookingBtn){
+    bookingBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
 
-document.getElementById("menuBoatingBtn")?.addEventListener("click", () => {
-  scrollToSection("boating");
-});
+      const section = document.getElementById("booking");
 
-document.getElementById("menuLocationBtn")?.addEventListener("click", () => {
-  scrollToSection("location");
+      closeMenu();
+      document.body.style.overflow = "auto";
+
+      setTimeout(() => {
+        if(section){
+          const y = section.getBoundingClientRect().top + window.pageYOffset - 100;
+
+          window.scrollTo({
+            top: y,
+            behavior: "smooth"
+          });
+        }
+      }, 300);
+    });
+  }
+
+
+  // ================= MENU RULES SCROLL =================
+  const rulesBtn = document.getElementById("menuRulesBtn");
+
+  if(rulesBtn){
+    rulesBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const section = document.getElementById("rules");
+
+      closeMenu();
+
+      setTimeout(() => {
+        if(section){
+          const y = section.getBoundingClientRect().top + window.pageYOffset - 90;
+
+          window.scrollTo({
+            top: y,
+            behavior: "smooth"
+          });
+        }
+      }, 300);
+    });
+  }
+
 });
 
 
@@ -240,316 +275,36 @@ function getDirections(){
 
 })();
 
-// ================= MENU EV SCROLL =================
-document.getElementById("menuEvBtn")?.addEventListener("click", () => {
-  scrollToSection("ev");
-});
 
 // ================= MENU BICYCLE REDIRECT =================
-document.getElementById("menuCycleBtn")?.addEventListener("click", () => {
+document.getElementById("menuCycleBtn")?.addEventListener("click", (e) => {
 
-  // menu close
+  e.stopPropagation(); // 🔥 FIX
+
   closeMenu();
-
-  // scroll unlock
   document.body.style.overflow = "auto";
 
-  // redirect
   setTimeout(() => {
     window.location.href = "pages/bicycle/rent.html";
   }, 200);
 
 });
 
-// ================= MENU ATTRACTIONS SCROLL (FINAL PERFECT VIEW) =================
-const attractionBtn = document.getElementById("menuAttractionBtn");
-
-if(attractionBtn){
-  attractionBtn.addEventListener("click", () => {
-
-    const section = document.getElementById("attractions");
-
-    // menu close
-    closeMenu();
-    document.body.style.overflow = "auto";
-
-    // history fix
-    if(history.state && history.state.menu){
-      history.back();
-    }
-
-    setTimeout(() => {
-      if(section){
-
-        // 🔥 EXTRA OFFSET (MAIN FIX)
-        const extraOffset = 240; // 👈 isko adjust kar sakte ho (140–180 best)
-
-        const y = section.getBoundingClientRect().top + window.pageYOffset - extraOffset;
-
-        window.scrollTo({
-          top: y,
-          behavior: "smooth"
-        });
-
-      }
-    }, 300);
-
-  });
-}
 
 // ================= MENU ECO STAY REDIRECT =================
 const ecoBtn = document.getElementById("menuEcoBtn");
 
 if(ecoBtn){
-  ecoBtn.addEventListener("click", () => {
+  ecoBtn.addEventListener("click", (e) => {
 
-    // menu close
+    e.stopPropagation(); // 🔥 FIX
+
     closeMenu();
     document.body.style.overflow = "auto";
 
-    // history fix
-    if(history.state && history.state.menu){
-      history.back();
-    }
-
-    // smooth redirect delay
     setTimeout(() => {
       window.location.href = "pages/ecohut/ecohut.html";
     }, 300);
 
   });
 }
-
-// ================= MENU BOOKING SCROLL =================
-const bookingBtn = document.getElementById("menuBookingBtn");
-
-if(bookingBtn){
-  bookingBtn.addEventListener("click", () => {
-
-    const section = document.getElementById("booking");
-
-    // menu close
-    closeMenu();
-    document.body.style.overflow = "auto";
-
-    // history fix
-    if(history.state && history.state.menu){
-      history.back();
-    }
-
-    setTimeout(() => {
-      if(section){
-
-        // 🔥 OFFSET (perfect view)
-        const offset = 90;
-
-        const y = section.getBoundingClientRect().top + window.pageYOffset - offset;
-
-        window.scrollTo({
-          top: y,
-          behavior: "smooth"
-        });
-
-      }
-    }, 300);
-
-  });
-}
-
-// ================= MENU RULES SCROLL =================
-const rulesBtn = document.getElementById("menuRulesBtn");
-
-if(rulesBtn){
-  rulesBtn.addEventListener("click", () => {
-
-    const section = document.getElementById("rules");
-
-    // menu close
-    closeMenu();
-    document.body.style.overflow = "auto";
-
-    // history fix
-    if(history.state && history.state.menu){
-      history.back();
-    }
-
-    setTimeout(() => {
-      if(section){
-
-        // 🔥 same offset (perfect alignment)
-        const offset = 70;
-
-        const y = section.getBoundingClientRect().top + window.pageYOffset - offset;
-
-        window.scrollTo({
-          top: y,
-          behavior: "smooth"
-        });
-
-      }
-    }, 300);
-
-  });
-}
-
-// ================= EV CART SYSTEM =================
-
-(function(){
-
-  let count = 1;
-  const price = 20;
-
-  const minusBtn = document.getElementById("evMinus");
-  const plusBtn = document.getElementById("evPlus");
-  const countText = document.getElementById("evCount");
-  const totalText = document.getElementById("evTotal");
-
-  function updateUI(){
-    countText.innerText = count;
-    totalText.innerText = count * price;
-  }
-
-  // ➖ Minus Button
-  if(minusBtn){
-    minusBtn.addEventListener("click", () => {
-      if(count > 1){
-        count--;
-        updateUI();
-      }
-    });
-  }
-
-  // ➕ Plus Button
-  if(plusBtn){
-    plusBtn.addEventListener("click", () => {
-      count++;
-      updateUI();
-    });
-  }
-
-  // 🔥 Initial Update
-  updateUI();
-
-})();
-
-// ================= ALL BOOKING SYSTEM =================
-
-document.addEventListener("DOMContentLoaded", function(){
-
-  // PRICE LIST
-  const prices = {
-    adult: 10,
-    child: 5,
-    motor: 100,
-    shikara: 100,
-    paddle: 50,
-    ev: 20
-  };
-
-  // COUNT STORAGE
-  const counts = {
-    adult: 0,
-    child: 0,
-    motor: 0,
-    shikara: 0,
-    paddle: 0,
-    ev: 0
-  };
-
-  // UPDATE UI FUNCTION
-  function updateUI(){
-
-    // update count
-    document.getElementById("adultCount").innerText = counts.adult;
-    document.getElementById("childCount").innerText = counts.child;
-    document.getElementById("motorCount").innerText = counts.motor;
-    document.getElementById("shikaraCount").innerText = counts.shikara;
-    document.getElementById("paddleCount").innerText = counts.paddle;
-    document.getElementById("evCountAll").innerText = counts.ev;
-
-    // calculate total
-    let total = 0;
-
-    for(let key in counts){
-      total += counts[key] * prices[key];
-    }
-
-    // update total
-    document.getElementById("grandTotal").innerText = total;
-  }
-
-  // ➕ PLUS BUTTON
-  document.querySelectorAll(".plus").forEach(btn => {
-    btn.addEventListener("click", function(){
-      let type = this.getAttribute("data-type");
-      counts[type]++;
-      updateUI();
-    });
-  });
-
-  // ➖ MINUS BUTTON
-  document.querySelectorAll(".minus").forEach(btn => {
-    btn.addEventListener("click", function(){
-      let type = this.getAttribute("data-type");
-
-      if(counts[type] > 0){
-        counts[type]--;
-        updateUI();
-      }
-    });
-  });
-
-  // FIRST LOAD
-  updateUI();
-
-});
-
-// ================= FAQ TOGGLE =================
-
-document.addEventListener("DOMContentLoaded", function(){
-
-  const faqItems = document.querySelectorAll(".faq-item");
-
-  faqItems.forEach(item => {
-
-    const question = item.querySelector(".faq-question");
-    const answer = item.querySelector(".faq-answer");
-    const icon = item.querySelector(".faq-icon");
-
-    question.addEventListener("click", function(){
-
-      const isOpen = item.classList.contains("active");
-
-      // 🔥 close all
-      faqItems.forEach(i => {
-        i.classList.remove("active");
-
-        const ans = i.querySelector(".faq-answer");
-        const icn = i.querySelector(".faq-icon");
-
-        if(ans){
-          ans.style.maxHeight = null;
-        }
-        if(icn){
-          icn.innerText = "+";
-        }
-      });
-
-      // 🔥 open clicked
-      if(!isOpen){
-        item.classList.add("active");
-
-        if(answer){
-          answer.style.maxHeight = answer.scrollHeight + "px";
-        }
-
-        if(icon){
-          icon.innerText = "−";
-        }
-      }
-
-    });
-
-  });
-
-});
