@@ -254,12 +254,10 @@ document.getElementById("menuCycleBtn")?.addEventListener("click", () => {
   // scroll unlock
   document.body.style.overflow = "auto";
 
-  }
-
-  // small delay for smooth UX
+  // redirect
   setTimeout(() => {
     window.location.href = "pages/bicycle/rent.html";
-  }, 300);
+  }, 200);
 
 });
 
