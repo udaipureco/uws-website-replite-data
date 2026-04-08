@@ -2671,8 +2671,8 @@ a:hover{
 .eco-btn{
   display:inline-block;
   padding:12px 20px;
-  background:#3f5f3f;
-  color:#fff;
+  background:#efe6d6;
+  color:#3f5f3f;
   border-radius:30px;
   text-decoration:none;
   font-weight:bold;
@@ -2841,4 +2841,45 @@ a:hover{
     width:200px;
   }
 
+}
+
+/* ================= NOTICE BAR ================= */
+
+.notice-bar{
+  width:92%;
+  margin:10px auto;
+  overflow:hidden;
+
+  background:#efe6d6;
+
+  border-radius:12px;   /* 👈 yaha change (30px → 12px) */
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,0.15);
+
+  padding:10px 0;
+
+  border:1px solid rgba(63,95,63,0.2);
+}
+
+.notice-track{
+  display:inline-block;
+  white-space:nowrap;
+  color:#2e4a2e;
+  font-weight:600;
+  font-size:14px;
+
+  padding-left:100%; /* smooth entry */
+
+  animation:scrollText 50s linear infinite; /* 👈 slow kar diya */
+}
+
+/* SCROLL ANIMATION */
+@keyframes scrollText{
+  0%{
+    transform:translateX(0%);
+  }
+  100%{
+    transform:translateX(-100%);
+  }
 }
