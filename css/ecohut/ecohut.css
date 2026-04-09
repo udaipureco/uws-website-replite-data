@@ -2,6 +2,10 @@ body{
   margin:0;
   font-family:'Segoe UI',sans-serif;
   background:#efe6d6;
+
+  display:flex;              /* 🔥 ADD */
+  flex-direction:column;     /* 🔥 ADD */
+  min-height:100vh;          /* 🔥 ADD */
 }
 
 /* HEADER */
@@ -43,4 +47,31 @@ body{
   font-size:18px;
   font-weight:900;
   box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* 🔥 BACK BUTTON FIXED */
+.back-home-btn{
+  margin:40px 20px;
+  padding:14px 20px;
+
+  background:#3f5f3f;
+  color:#fff;
+
+  border-radius:12px;
+  font-weight:600;
+  font-size:16px;
+
+  width:fit-content;
+
+  cursor:pointer;
+  transition:0.3s;
+
+  margin-top:auto;   /* 🔥 MAIN FIX (push to bottom) */
+  margin-bottom:40px;
+}
+
+/* HOVER */
+.back-home-btn:hover{
+  background:#2e4a2e;
+  transform:translateX(-3px);
 }
