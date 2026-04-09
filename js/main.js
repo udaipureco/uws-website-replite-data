@@ -559,3 +559,100 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
 });
+
+function scrollToLocation(){
+
+  const section = document.getElementById("location");
+
+  if(section){
+
+    const header = document.querySelector(".header");
+
+    const offset = header ? header.offsetHeight + 20 : 120;
+
+    const y = section.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth"
+    });
+
+  }
+
+}
+
+
+  //===== all in one boking =====
+document.addEventListener("DOMContentLoaded", function(){
+
+  // ================= PRICE LIST =================
+  const prices = [10, 5, 100, 100, 50, 20];
+
+  const items = document.querySelectorAll(".booking-item");
+  const totalBox = document.querySelector(".booking-total");
+
+  // ================= STATE =================
+  let counts = [0, 0, 0, 0, 0, 0];
+
+  // ================= UPDATE UI =================
+  function updateUI(){
+
+    let total = 0;
+
+    items.forEach((item, index) => {
+
+      const countSpan = item.querySelector(".booking-qty span");
+      countSpan.innerText = counts[index];
+
+      total += counts[index] * prices[index];
+
+    });
+
+    totalBox.innerText = "TOTAL: ₹" + total;
+  }
+
+  // ================= BUTTON LOGIC =================
+  items.forEach((item, index) => {
+
+    const minus = item.querySelector(".booking-qty button:first-child");
+    const plus = item.querySelector(".booking-qty button:last-child");
+
+    minus.addEventListener("click", () => {
+      if(counts[index] > 0){
+        counts[index]--;
+        updateUI();
+      }
+    });
+
+    plus.addEventListener("click", () => {
+      counts[index]++;
+      updateUI();
+    });
+
+  });
+
+  // ================= VIEW DETAILS =================
+  document.querySelector(".booking-btn")?.addEventListener("click", () => {
+
+    alert("Total Booking: ₹" + totalBox.innerText.replace("TOTAL: ₹",""));
+
+  });
+
+  // ================= BOOK NOW =================
+  document.querySelectorAll(".booking-btn")[1]?.addEventListener("click", () => {
+
+    const data = {
+      counts: counts,
+      total: totalBox.innerText.replace("TOTAL: ₹","")
+    };
+
+    localStorage.setItem("allBookingData", JSON.stringify(data));
+
+    window.location.href = "pages/allbooking/preview.html";
+
+  });
+
+  // ================= INIT =================
+  updateUI();
+
+});
