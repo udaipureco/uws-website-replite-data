@@ -3,6 +3,7 @@
    Common reset, variables, typography for all sub-pages
    ================================================================ */
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+@import url('header.css');
 
 :root {
   --green: #3f5f3f;
@@ -54,19 +55,7 @@ img {
 a { text-decoration: none; color: inherit; }
 button { cursor: pointer; font-family: var(--font-body); border: none; outline: none; }
 
-/* Shared header */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 0.875rem 1rem;
-  text-align: center;
-  font-weight: 900;
-  color: #fff;
-  background: var(--green);
-  font-size: 0.9375rem;
-  letter-spacing: 0.3px;
-}
+/* Shared header — see header.css */
 
 /* Shared container for form pages */
 .container {
@@ -123,13 +112,11 @@ button { cursor: pointer; font-family: var(--font-body); border: none; outline: 
 @media (min-width: 481px) {
   .container { max-width: 560px; padding: 1rem 1.25rem; }
   .card { padding: 1.125rem; }
-  .header { font-size: 1rem; padding: 1rem 1.25rem; }
 }
 
 /* Desktop */
 @media (min-width: 1025px) {
   body { display: flex; flex-direction: column; align-items: center; }
   .container { max-width: 650px; }
-  .header { max-width: 700px; width: 100%; border-radius: 0 0 var(--radius-md) var(--radius-md); }
   .btn-group { max-width: 650px; }
 }

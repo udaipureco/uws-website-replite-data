@@ -991,50 +991,9 @@ Explore Now
 
 </footer>
 
-<!-- MENU OVERLAY -->
-<div class="menu-overlay" id="menu" data-testid="menu-overlay">
-
-  <div class="menu-panel">
-
-    <div class="menu-top">
-      <img src="images/logo/logo.svg" class="menu-logo" alt="Logo">
-
-      <div class="close-btn" data-testid="menu-close-btn">&#10005;</div>
-    </div>
-
-    <ul class="menu-list">
-      <li onclick="goHome()" data-testid="menu-home">Home</li>
-      <li id="menuBookingBtn" data-testid="menu-booking">Book Tickets</li>
-      <li id="menuBoatingBtn" data-testid="menu-boating">Boating</li>
-      <li id="menuEvBtn" data-testid="menu-ev">EV Cart</li>
-      <li id="menuCycleBtn" data-testid="menu-bicycle">Bicycle Rental</li>
-      <li id="menuAttractionBtn" data-testid="menu-attractions">Attractions</li>
-      <li id="menuEcoBtn" data-testid="menu-eco">Eco Stay</li>
-      <li id="menuGalleryBtn" data-testid="menu-gallery">Gallery</li>
-      <li data-testid="menu-plan">Plan Visit</li>
-      <li id="menuLocationBtn" data-testid="menu-location">Location & Timing</li>
-      <li data-testid="menu-pricing">Pricing</li>
-      <li id="menuRulesBtn" data-testid="menu-rules">Rules</li>
-      <li data-testid="menu-contact">Contact</li>
-      <li data-testid="menu-feedback">Feedback</li>
-      <li data-testid="menu-about">About</li>
-    </ul>
-
-  </div>
-
-</div>
-
-<!-- JS FILE -->
+<!-- JS FILES -->
+<script src="js/header-loader.js"></script>
 <script src="js/main.js"></script>
-
-<script>
-fetch("components/heading.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("headerContainer").innerHTML = data;
-  });
-</script>
 
 </body>
 </html>
-ml>
