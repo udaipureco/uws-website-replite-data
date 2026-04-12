@@ -63,11 +63,6 @@ document.addEventListener("DOMContentLoaded", function(){
   const closeEntryBtn = document.getElementById("closePopup");
 
 
-  // ===== MENU OPEN =====
-  heroMenuBtn && heroMenuBtn.addEventListener("click", openMenu);
-  headerMenuBtn && headerMenuBtn.addEventListener("click", openMenu);
-
-
   // ===== MENU CLOSE BUTTON =====
   if(closeMenuBtn){
     closeMenuBtn.addEventListener("click", () => {
@@ -656,3 +651,19 @@ document.addEventListener("DOMContentLoaded", function(){
   updateUI();
 
 });
+
+function initMenu(){
+
+  const heroMenuBtn = document.getElementById("heroMenuBtn");
+  const headerMenuBtn = document.querySelector(".header .menu");
+  const closeMenuBtn = document.querySelector(".close-btn");
+
+  // OPEN
+  heroMenuBtn && heroMenuBtn.addEventListener("click", openMenu);
+  headerMenuBtn && headerMenuBtn.addEventListener("click", openMenu);
+
+  // CLOSE
+  closeMenuBtn && closeMenuBtn.addEventListener("click", () => {
+    closeMenu();
+  });
+}
