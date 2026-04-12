@@ -49,89 +49,100 @@ function goHome(){
 }
 
 
-// ================= MAIN INIT =================
+// ================= MAIN INIT (Event Delegation) =================
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("click", function(e){
 
-  const menu = document.getElementById("menu");
-  const heroMenuBtn = document.getElementById("heroMenuBtn");
-  const headerMenuBtn = document.querySelector(".menu");
-  const closeMenuBtn = document.querySelector(".close-btn");
-
-  const entryPopup = document.getElementById("popup");
-  const openEntryBtn = document.getElementById("viewBtn");
-  const closeEntryBtn = document.getElementById("closePopup");
-
-
-  // ===== MENU CLOSE BUTTON =====
-  if(closeMenuBtn){
-    closeMenuBtn.addEventListener("click", () => {
-      closeMenu();
-    });
+  // MENU OPEN — hero menu btn or header hamburger
+  if(e.target.closest("#heroMenuBtn") || e.target.closest(".menu-icon") || e.target.closest("[data-testid='header-menu-btn']")){
+    openMenu();
+    return;
   }
 
+  // MENU CLOSE — close button
+  if(e.target.closest(".close-btn")){
+    closeMenu();
+    return;
+  }
 
-if(menu){
-  menu.addEventListener("click", (e) => {
+  // MENU OVERLAY — click outside panel to close
+  var menuOverlay = document.getElementById("menu");
+  if(menuOverlay && e.target === menuOverlay){
+    closeMenu();
+    return;
+  }
 
-    if(e.target === menu){
-      closeMenu();
-    }else{
-      e.stopPropagation(); // 🔥 MAIN FIX
-    }
-
-  });
-}
-
-
-  // ================= ENTRY POPUP =================
-
-  if(openEntryBtn){
-    openEntryBtn.addEventListener("click", () => {
+  // ENTRY POPUP OPEN
+  if(e.target.closest("#viewBtn")){
+    var entryPopup = document.getElementById("popup");
+    if(entryPopup){
       entryPopup.style.display = "flex";
       document.body.style.overflow = "hidden";
-
       history.pushState({popup:true}, "");
-    });
+    }
+    return;
   }
 
-  if(closeEntryBtn){
-    closeEntryBtn.addEventListener("click", () => {
+  // ENTRY POPUP CLOSE
+  if(e.target.closest("#closePopup")){
+    var entryPopup = document.getElementById("popup");
+    if(entryPopup){
       entryPopup.style.display = "none";
       document.body.style.overflow = "auto";
-
       history.back();
-    });
+    }
+    return;
   }
 
-  if(entryPopup){
-    entryPopup.addEventListener("click", (e) => {
-      if(e.target === entryPopup){
-        entryPopup.style.display = "none";
-        document.body.style.overflow = "auto";
-        history.back();
+  // ENTRY POPUP BACKDROP
+  var entryPopup = document.getElementById("popup");
+  if(entryPopup && e.target === entryPopup){
+    entryPopup.style.display = "none";
+    document.body.style.overflow = "auto";
+    history.back();
+    return;
+  }
+
+  // FAQ TOGGLE
+  var faqQuestion = e.target.closest(".faq-question");
+  if(faqQuestion){
+    var faqItem = faqQuestion.closest(".faq-item");
+    if(faqItem){
+      var isOpen = faqItem.classList.contains("active");
+      // Close all FAQ items
+      document.querySelectorAll(".faq-item").forEach(function(item){
+        item.classList.remove("active");
+        var ans = item.querySelector(".faq-answer");
+        if(ans) ans.style.maxHeight = null;
+        var icn = item.querySelector(".faq-question span");
+        if(icn) icn.innerText = "+";
+      });
+      // Open clicked if it was closed
+      if(!isOpen){
+        faqItem.classList.add("active");
+        var answer = faqItem.querySelector(".faq-answer");
+        if(answer) answer.style.maxHeight = answer.scrollHeight + "px";
+        var icon = faqItem.querySelector(".faq-question span");
+        if(icon) icon.innerText = "\u2212";
       }
-    });
+    }
+    return;
+  }
+});
+
+// ================= BACK BUTTON =================
+window.addEventListener("popstate", function(){
+  var entryPopup = document.getElementById("popup");
+  if(entryPopup && entryPopup.style.display === "flex"){
+    entryPopup.style.display = "none";
+    document.body.style.overflow = "auto";
+    return;
   }
 
-
-  // ================= BACK BUTTON =================
-
-  window.addEventListener("popstate", () => {
-
-    if(entryPopup && entryPopup.style.display === "flex"){
-      entryPopup.style.display = "none";
-      document.body.style.overflow = "auto";
-      return;
-    }
-
-    if(isMenuOpen){
-      closeMenu(true); // 🔥 important (no history loop)
-      return;
-    }
-
-  });
-
+  if(isMenuOpen){
+    closeMenu(true);
+    return;
+  }
 });
 
 
@@ -442,55 +453,7 @@ document.addEventListener("DOMContentLoaded", function(){
   // All-in-one booking handled by the system below
 });
 
-// ================= FAQ TOGGLE =================
-
-document.addEventListener("DOMContentLoaded", function(){
-
-  const faqItems = document.querySelectorAll(".faq-item");
-
-  faqItems.forEach(item => {
-
-    const question = item.querySelector(".faq-question");
-    const answer = item.querySelector(".faq-answer");
-    const icon = item.querySelector(".faq-icon");
-
-    question.addEventListener("click", function(){
-
-      const isOpen = item.classList.contains("active");
-
-      // 🔥 close all
-      faqItems.forEach(i => {
-        i.classList.remove("active");
-
-        const ans = i.querySelector(".faq-answer");
-        const icn = i.querySelector(".faq-icon");
-
-        if(ans){
-          ans.style.maxHeight = null;
-        }
-        if(icn){
-          icn.innerText = "+";
-        }
-      });
-
-      // 🔥 open clicked
-      if(!isOpen){
-        item.classList.add("active");
-
-        if(answer){
-          answer.style.maxHeight = answer.scrollHeight + "px";
-        }
-
-        if(icon){
-          icon.innerText = "−";
-        }
-      }
-
-    });
-
-  });
-
-});
+// ================= FAQ TOGGLE (handled via event delegation above) =================
 
 function scrollToLocation(){
 

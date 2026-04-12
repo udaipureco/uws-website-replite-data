@@ -1032,7 +1032,6 @@ fetch("components/heading.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("headerContainer").innerHTML = data;
-    document.dispatchEvent(new Event("DOMContentLoaded"));
   });
 </script>
 
